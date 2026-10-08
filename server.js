@@ -7,7 +7,7 @@ if (!fs.existsSync(dir)) {
 }
 
 require('dotenv').config();
-const express=require('express'), path=require('path'), crypto=require('crypto'), jwt=require('jsonwebtoken'), Database=require('better-sqlite3'), QRCode=require('qrcode'), rateLimit=require('express-rate-limit'), {v4:uuid}=require('uuid');
+const express=require('express'),  crypto=require('crypto'), jwt=require('jsonwebtoken'), Database=require('better-sqlite3'), QRCode=require('qrcode'), rateLimit=require('express-rate-limit'), {v4:uuid}=require('uuid');
 const app=express(), PORT=+(process.env.PORT||3000), BASE=process.env.BASE_URL||`http://localhost:${PORT}`;
 const db = new Database(path.join(__dirname, 'data', 'reunion.db'))
 db.exec(`CREATE TABLE IF NOT EXISTS registrations(id TEXT PRIMARY KEY,name TEXT,batch TEXT,phone TEXT,email TEXT,address TEXT,profession TEXT,badge_id TEXT,badge_name TEXT,amount INTEGER,payment_method TEXT,payment_status TEXT DEFAULT 'PENDING',transaction_id TEXT,created_at TEXT)`);

@@ -1,1 +1,0 @@
-{"name":"jji-reunion","version":"1.0.0","private":true,"scripts":{"start":"node server/server.js","dev":"node --watch server/server.js"},"dependencies":{"better-sqlite3":"^11.7.0","dotenv":"^16.4.7","express":"^4.21.2","express-rate-limit":"^7.5.0","jsonwebtoken":"^9.0.2","qrcode":"^1.5.4","uuid":"^11.0.5"}}

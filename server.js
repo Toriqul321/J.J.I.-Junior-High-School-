@@ -14,7 +14,7 @@ db.exec(`CREATE TABLE IF NOT EXISTS registrations(id TEXT PRIMARY KEY,name TEXT,
 const BADGES=[{id:'general',name:'সাধারণ সদস্য',price:1000,description:'একজন প্রাক্তন ছাত্র/ছাত্রী'},{id:'family',name:'সদস্য + পরিবার',price:1800,description:'একজন সদস্য ও পরিবার'},{id:'vip',name:'VIP সদস্য',price:3000,description:'VIP আসন ও বিশেষ ব্যাজ'},{id:'lifetime',name:'আজীবন সদস্য',price:5000,description:'বিশেষ স্মারক/আজীবন সদস্য ব্যাজ'}];
 const clean=x=>String(x||'').trim().slice(0,500), badge=id=>BADGES.find(x=>x.id===id);
 app.use(express.json({limit:'1mb'})); app.use(express.urlencoded({extended:true})); app.use(rateLimit({windowMs:15*60*1000,max:300})); app.use(express.static(path.join(__dirname,'..')));
-app.use(express.static(path.join(__dirname, '..')));
+app.use(express.static(__dirname));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
